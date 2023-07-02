@@ -1,0 +1,31 @@
+# Entornos virtuales
+venv/
+env/
+
+# Archivos de entorno
+.env
+
+# Archivos generados por Python
+__pycache__/
+*.pyc
+
+# Archivos generados por herramientas de prueba
+.pytest_cache/
+.coverage
+
+# Archivos de registro y salida de depuración
+*.log
+*.out
+
+# Archivos generados por IDE y editores de texto
+.vscode/
+.idea/
+*.sublime-project
+
+# Archivos sensibles y datos de usuario
+.env
+config.py
+
+# Archivos de dependencias y bibliotecas
+requirements.txt
+*.egg-info/
