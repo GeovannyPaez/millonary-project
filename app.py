@@ -67,6 +67,7 @@ def comprobar_respuesta(index: int):
     if contador_intentos > 1:
         if index == pregunta_actual['correcta']:
             acumulador_puntos += 100
+            temporizador.eliminar()
             messagebox.showinfo("¡Respuesta correcta!", f"¡Correcto! Has ganado 100 puntos.\nTotal de puntos: {acumulador_puntos}")
         else:
             temporizador.eliminar()
