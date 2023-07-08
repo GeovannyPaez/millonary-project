@@ -87,7 +87,7 @@ def resetear_intento():
 # Creación de widgets
 # Frame inicial
 inicio = tk.Frame(ventana, bg='black')
-tk.Label(inicio, text="Quick Question", font=("Arial", 24), fg='cyan', bg='black').pack(pady=50)
+tk.Label(inicio, text="¿Quieres Ser Millonario?", font=("Arial", 24), fg='cyan', bg='black').pack(pady=50)
 tk.Button(inicio, text="Iniciar juego", font=("Arial", 16), fg='cyan', bg='black', command=iniciar_juego).pack()
 
 # Frame para seleccionar tema
@@ -120,7 +120,7 @@ intentos_label = tk.Label(tema_pregunta, text=f"Intentos restantes: {contador_in
 intentos_label.pack(pady=10)
 
 # Creamos el temporizador
-temporizador = Temporizador(tema_pregunta, 5, timeOutQuestion)
+temporizador = Temporizador(tema_pregunta, 60, timeOutQuestion)
 
 # Mostrar la ventana inicio
 inicio.pack()
