@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import messagebox
 import random
-from dataPreguntas import preguntas
+from dataPreguntas import preguntas,formatRespuestas
 from ventanaPrincipal import ventana
 from frames.helpsButtons import BotonesAyuda
 from frames.temporizador import Temporizador
@@ -36,6 +36,7 @@ def seleccionar_tema(tema):
     acumulador_puntos = 0  # Reinicia el acumulador de puntos
     resetear_intento()
     mostrar_pregunta()
+    botonesAyuda.stateButtonsDefault()
 
     temporizador.iniciar_contador()
 
@@ -50,10 +51,13 @@ def mostrar_pregunta():
         # Seleccionar una pregunta aleatoria de las preguntas restantes
         pregunta_actual = random.choice(preguntas_restantes)
         pregunta.config(text=pregunta_actual['pregunta'])
-
+        respuestas  = pregunta_actual['respuestas']
+        botonesAyuda.setPregunta(pregunta_actual)
+        
         # Configurar los botones de respuesta
-        for i, respuesta in enumerate(pregunta_actual['respuestas']):
-            botones_respuesta[i].config(text=respuesta)
+        for i, respuesta in enumerate(respuestas):
+            botones_respuesta[i].config(text=f"{formatRespuestas[i]}. {respuesta}",state="normal")
+            
 
     else:
         messagebox.showinfo("¡Juego terminado!", f"Has respondido todas las preguntas del tema {tema_actual}.\nTotal de puntos: {acumulador_puntos}")
@@ -116,6 +120,8 @@ for i in range(4):
                       command=lambda idx=i: comprobar_respuesta(idx))
     boton.pack(pady=5)
     botones_respuesta.append(boton)
+# añadimos los botones a las ayudas para poder modificarlos 
+botonesAyuda.setBotonesRespuesta(botones_respuesta)
 
 intentos_label = tk.Label(tema_pregunta, text=f"Intentos restantes: {contador_intentos}", font=("Arial", 14), fg='cyan', bg='black')
 intentos_label.pack(pady=10)

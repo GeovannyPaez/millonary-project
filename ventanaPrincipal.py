@@ -5,4 +5,4 @@ import tkinter as tk
 ventana = tk.Tk()
 ventana.title("Quick Question")
 ventana.configure(bg='black')
-ventana.geometry("700x600")
+ventana.geometry("800x800")

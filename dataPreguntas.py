@@ -1,4 +1,5 @@
 # Preguntas y respuestas
+formatRespuestas = ["A","B","C","D"]
 preguntas = {
     'programacion basica': [
         {'pregunta': '¿Qué es Python?', 'respuestas': ['Un lenguaje de programación', 'Un reptil', 'Una fruta', 'Un país'], 'correcta': 0},
